@@ -19,4 +19,9 @@ if [ -n "$NPM_AUTH_TOKEN" ]; then
   chmod 0600 "$NPM_CONFIG_USERCONFIG"
 fi
 
+if [ -n "$GIT_USER_EMAIL" -a -n "$GIT_USER_NAME" ]; then
+  git config --global user.email $GIT_USER_EMAIL
+  git config --global user.name $GIT_USER_NAME
+fi
+
 sh -c "npm $*"
